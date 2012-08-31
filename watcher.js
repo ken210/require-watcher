@@ -12,7 +12,7 @@ function puts(error, stdout, stderr) {
 
 function watchFile(file) {
 	fs.watchFile(file, function () {
-		console.log('\n----------------\n\033[0;36mwatcher.js:\n\033[0mModule \033[1;32m"' + file + '" \033[0mmodified\n----------------');
+		console.log('\n----------------\n\033[0mModule \033[0;32m"' + file + '" \033[0mmodified\n----------------');
 		exec("node r.js -o app.build.js", puts);
 	});
 }
@@ -24,3 +24,5 @@ fs.readdir('.', function (err, files) {
 		}
 	});
 });
+
+console.log('\nWatcher.js:\nWatching \033[0;33m' + __dirname + '\033[0m');
